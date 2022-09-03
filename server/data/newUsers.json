@@ -1,0 +1,18 @@
+[
+    {
+        "username": "Super",
+        "role": "SuperAdmin"
+    },
+    {
+        "username": "test1",
+        "role": "GroupAdmin"
+    },
+    {
+        "username": "test2",
+        "role": "GroupAssistant"
+    },
+    {
+        "username": "test3",
+        "role": ""
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "group": "Secret Chat",
+        "rooms": ["Room1", "Room2", "Room3", "Room4"]
+    },
+    {
+        "group": "The Man Cave",
+        "rooms": ["Gaming", "Chatting", "Movies"]
+    }
+]
