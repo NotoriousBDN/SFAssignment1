@@ -37,23 +37,46 @@ module.exports = function(req, res) {
 
                 let userData = extendedUserArray[0];
 
-                for (let i=0; i < extendedUserArray[0].userList.length; i++) {
-                    //console.log(extendedUserArray[0].userList[i]);
+                fs.readFile('./data/inProg.json', 'utf8', function(err, data) {
+                    if (err) throw err;
+                    let test = JSON.parse(data);
+                    test["working"] = true;
+                    test["username"] = u;
+                    test["role"] = role;
+                    test["groups"] = [];
 
-                    // Check to see if username is in userlist
-                    // userData will only be ok if it does match
-                    if (extendedUserArray[0].userList[i] == u ) {
-                        console.log(u);
-                        userData["ok"] = true;
-                        userData["username"] = u;
-                        userData["role"] = role;
+                    console.log(extendedUserArray.length)
+
+                    for (let a=0; a < extendedUserArray.length; a++) {
+                        for (let i=0; i < extendedUserArray[a].userList.length; i++) {
+                            //console.log(extendedUserArray[0].userList[i]);
+        
+
+                            // Check to see if username is in userlist
+                            // userData will only be ok if it does match
+                            // Add username + role so that they can be used later
+                            if (extendedUserArray[a].userList[i] == u ) {
+                                console.log(u);
+                                console.log(extendedUserArray[a].userList[i]);
+                                console.log(extendedUserArray[a].group);
+                                userData["ok"] = true;
+                                userData["username"] = u;
+                                userData["role"] = role;
+                                test["groups"].push(extendedUserArray[a].group);
+                            }
+                        }
                     }
-                }
-                console.log(i);
+
+
+
+                   // console.log(i);
                 //let userData = extendedUserArray[0];
                 //userData["ok"] = true;
-                console.log(userData);
-                res.send(userData);
+                    console.log(userData);
+                    console.log(test);
+                    res.send(userData);
+
+                });
             });
             
         }
