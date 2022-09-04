@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
     .subscribe((data:any)=>{
       alert("posting: " +JSON.stringify(user));
 
+      //alert(data);
       alert("postRes: " +JSON.stringify(data));
 
       if (data.ok){
@@ -38,9 +39,27 @@ export class LoginComponent implements OnInit {
         //sessionStorage.setItem('userage', data.userage.toString());
         sessionStorage.setItem('user', data.username);
         sessionStorage.setItem('role', data.role);
-        sessionStorage.setItem('group', data.group);
-        sessionStorage.setItem('rooms', data.rooms);
-        sessionStorage.setItem('userList', data.userList)
+        sessionStorage.setItem('groups', JSON.stringify(data.groups));
+        alert(data.groups.length);
+        
+        //var testing = [];
+        for (let i = 0; i < data.groups.length; i++) {
+          alert(data.groups[i].group);
+          sessionStorage.setItem('group', (data.groups[i].group));
+        }
+
+        let group1Name = JSON.stringify(data.groups[0].group);
+        let group1Rooms = JSON.stringify(data.groups[0].rooms);
+        let group2Name = JSON.stringify(data.groups[1].group);
+        let group2Rooms = JSON.stringify(data.groups[1].rooms);
+        sessionStorage.setItem('group1Name', group1Name);
+        sessionStorage.setItem('group1Rooms', group1Rooms);
+        alert(group1Name);
+        alert(group1Rooms);
+        let rooms = JSON.stringify(data.groups);
+        //sessionStorage.setItem('rooms', data.group[0].rooms[0]);
+        //let rooms = sessionStorage.getItem('rooms');
+        //sessionStorage.setItem('userList', JSON.stringify(data.userList))
 
         this.router.navigateByUrl("/account");
       }

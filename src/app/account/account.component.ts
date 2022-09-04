@@ -21,8 +21,9 @@ export class AccountComponent implements OnInit {
   //age = sessionStorage.getItem('userage');
   user = sessionStorage.getItem('user');
   role = sessionStorage.getItem('role');
-  group = sessionStorage.getItem('group');
-  rooms = sessionStorage.getItem('rooms');
+  group = sessionStorage.getItem('group1Name');
+  test = sessionStorage.getItem('group');
+  rooms = sessionStorage.getItem('group1Rooms');
   userList = sessionStorage.getItem('userList');
 
 }

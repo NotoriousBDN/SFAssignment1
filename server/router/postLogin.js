@@ -40,10 +40,11 @@ module.exports = function(req, res) {
                 fs.readFile('./data/inProg.json', 'utf8', function(err, data) {
                     if (err) throw err;
                     let test = JSON.parse(data);
-                    test["working"] = true;
-                    test["username"] = u;
-                    test["role"] = role;
-                    test["groups"] = [];
+                    test1 = {}
+                    test1["working"] = true;
+                    test1["username"] = u;
+                    test1["role"] = role;
+                    test1["groups"] = [];
 
                     console.log(extendedUserArray.length)
 
@@ -62,7 +63,12 @@ module.exports = function(req, res) {
                                 userData["ok"] = true;
                                 userData["username"] = u;
                                 userData["role"] = role;
-                                test["groups"].push(extendedUserArray[a].group);
+                                test1["ok"] = true;
+                                console.log(test.groups);
+                                roomList = extendedUserArray[a].rooms;
+                                console.log(roomList);
+                                //test["groups"].push(extendedUserArray[a].group);
+                                test1.groups.push({group: extendedUserArray[a].group, rooms: roomList, userList: extendedUserArray[a].userList});
                             }
                         }
                     }
@@ -74,7 +80,9 @@ module.exports = function(req, res) {
                 //userData["ok"] = true;
                     console.log(userData);
                     console.log(test);
-                    res.send(userData);
+                    console.log(test1);
+                    userData = test;
+                    res.send(test1);
 
                 });
             });
