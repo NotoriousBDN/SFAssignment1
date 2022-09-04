@@ -13,8 +13,6 @@ const BACKEND_URL = 'https://s5217904.elf.ict.griffith.edu.au:3001';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  email = '';
-  password = '';
   username = '';
 
   constructor(private router:Router, private httpClient: HttpClient) { }
@@ -33,11 +31,16 @@ export class LoginComponent implements OnInit {
 
       if (data.ok){
         alert("correct");
-        sessionStorage.setItem('userid', data.userid.toString());
-        sessionStorage.setItem('userlogin', data.ok.toString());
-        sessionStorage.setItem('username', data.username);
-        sessionStorage.setItem('userbirthdate', data.userbirthdate);
-        sessionStorage.setItem('userage', data.userage.toString());
+        //sessionStorage.setItem('userid', data.userid.toString());
+        //sessionStorage.setItem('userlogin', data.ok.toString());
+        //sessionStorage.setItem('username', data.username);
+        //sessionStorage.setItem('userbirthdate', data.userbirthdate);
+        //sessionStorage.setItem('userage', data.userage.toString());
+        sessionStorage.setItem('user', data.username);
+        sessionStorage.setItem('role', data.role);
+        sessionStorage.setItem('group', data.group);
+        sessionStorage.setItem('rooms', data.rooms);
+        sessionStorage.setItem('userList', data.userList)
 
         this.router.navigateByUrl("/account");
       }

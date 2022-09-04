@@ -6,8 +6,7 @@
 
         <!-- Login Form -->
         <form>
-            <input type="username" name="username" placeholder="username">
-
+            <input type="username" name="username" [(ngModel)]="username" placeholder="username">
         </form>
 
         <button (click)="submit()"> submit</button>
