@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
         this.username = data.username;
         sessionStorage.setItem('user', data.username);
         sessionStorage.setItem('role', data.role);
-        sessionStorage.setItem('groups', JSON.stringify(data.groups));
+        sessionStorage.setItem('groups', (data.groups));
         sessionStorage.setItem('loggedIn', "True");
         alert(JSON.stringify(data.groups));
         alert(data.groups.length);

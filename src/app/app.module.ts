@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AccountComponent } from './account/account.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RoomViewComponent } from './room-view/room-view.component';
 // import { from } from 'rxjs';
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ProfileComponent } from './profile/profile.component';
     AppComponent,
     LoginComponent,
     AccountComponent,
-    ProfileComponent
+    ProfileComponent,
+    RoomViewComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,7 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule,
     HttpClientModule // for http method
   ],
-  providers: [],
+  providers: [AccountComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
