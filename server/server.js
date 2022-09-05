@@ -71,3 +71,4 @@ httpsServer.listen(PORT, () => {
 
 app.post('/login', require('./router/postLogin'));
 app.post('/loginafter', require('./router/postLoginAfter'));
+app.post('/getUser', require('./router/getUser'));

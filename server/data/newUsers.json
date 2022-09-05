@@ -1,14 +1,14 @@
-[
-    {
-        "id": 1, "username": "Super", "email": "super@admin.com", "role": 3
-    },
-    {
-        "id": 2, "username": "test1", "email": "super@admin.com", "role": 0
-    },        
-    {
-        "id": 3, "username": "test2", "email": "super@admin.com", "role": 0
-    },
-    {
-        "id": 4, "username": "test3", "email": "super@admin.com", "role": 0
-    }
+[ 
+        {
+            "id": 1, "username": "Super", "email": "super@admin.com", "role": 3
+        },
+        {
+            "id": 2, "username": "test1", "email": "super@admin.com", "role": 0
+        },        
+        {
+            "id": 3, "username": "test2", "email": "super@admin.com", "role": 0
+        },
+        {
+            "id": 4, "username": "test3", "email": "super@admin.com", "role": 0
+        }
 ]

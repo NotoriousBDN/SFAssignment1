@@ -41,7 +41,8 @@ export class LoginComponent implements OnInit {
   submit(){
     
   let user = {username:this.username};
- this.httpClient.post(BACKEND_URL + '/login', user,  httpOptions)
+ //this.httpClient.post(BACKEND_URL + '/login', user,  httpOptions)
+ this.httpClient.post(BACKEND_URL + '/getUser', user,  httpOptions)
 // this.httpClient.post(BACKEND_URL + '/login', user)
     .subscribe((data:any)=>{
       alert("posting: " +JSON.stringify(user));
@@ -50,11 +51,11 @@ export class LoginComponent implements OnInit {
       alert("postRes: " +JSON.stringify(data));
 
       if (data.ok){
-        alert("correct");
+        //alert("correct");
         this.isLoggedIn = true;
         if (this.a == null) {
           this.isLoggedIn = true;
-          alert("is null");
+         // alert("is null");
         }
         //sessionStorage.setItem('userid', data.userid.toString());
         //sessionStorage.setItem('userlogin', data.ok.toString());
@@ -67,12 +68,12 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('role', data.role);
         sessionStorage.setItem('groups', (data.groups));
         sessionStorage.setItem('loggedIn', "True");
-        alert(JSON.stringify(data.groups));
-        alert(data.groups.length);
-        this.setItem();
+       // alert(JSON.stringify(data.groups));
+        //alert(data.groups.length);
+        //this.setItem();
         //var testing = [];
         for (let i = 0; i < data.groups.length; i++) {
-          alert(data.groups[i].group);
+         // alert(data.groups[i].group);
           sessionStorage.setItem('group', (data.groups[i].group));
         }
 
@@ -84,9 +85,9 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('group1Name', group1Name);
         sessionStorage.setItem('group1Rooms', group1Rooms);
         sessionStorage.setItem('group1Users', group1Users);
-        alert(group1Name);
-        alert(group1Rooms);
-        alert(group1Users);
+       // alert(group1Name);
+        //alert(group1Rooms);
+        //alert(group1Users);
         let rooms = JSON.stringify(data.groups);
         //sessionStorage.setItem('rooms', data.group[0].rooms[0]);
         //let rooms = sessionStorage.getItem('rooms');
@@ -95,7 +96,7 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl("/account");
       }
       else { 
-        alert("email or password incorrect");
+        alert("This username does not exist");
         this.isLoggedIn = false;
     }
   
@@ -108,12 +109,14 @@ export class LoginComponent implements OnInit {
     
   }
 
+  /*
 
   setItem() {
     this.checkUserService.setItem(this.username, this.role)
     console.log(JSON.stringify(this.checkUserService.jsonItems));
   }
 
+  */
 
   
   

@@ -15,4 +15,8 @@ export class CheckUserService {
     return this.jsonItems[key];
   }
 
+  getUser(user: string) {
+    return 
+  }
+
 }

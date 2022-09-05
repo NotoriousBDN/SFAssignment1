@@ -26,6 +26,8 @@ module.exports = function(req, res) {
                 role = "Super Admin";
             }
             console.log("Role: ",role);
+            apple = userArray[i];
+            apple["ok"] = true;
             fs.readFile('./data/groups.json', 'utf8', function(err, data) {
                 // the above path is with respect to where we run server.js
                 if (err) throw err;
@@ -82,7 +84,7 @@ module.exports = function(req, res) {
                     console.log(test);
                     console.log(test1);
                     userData = test;
-                    res.send(test1);
+                    res.send(apple);
 
                 });
             });
