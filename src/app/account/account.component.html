@@ -8,6 +8,20 @@
 
 <p>{{rooms}}</p>
 
+<ul>
+    <li>{{rooms}}</li>
+</ul>
+
+<ul>
+    <li *ngFor="let room of rooms; let i=index;">{{rooms}} offsdf </li>
+</ul>
+
+<p>{{groups}}</p>
+
+<ul>
+    <li *ngFor="let group of groups; let i=index; let c=count">{{i+1}} of {{c}}-<a routerLink='/login'> {{groups}} </a></li>
+</ul>
+
 <h3>Users</h3>
 
 <p>{{userList}}</p>

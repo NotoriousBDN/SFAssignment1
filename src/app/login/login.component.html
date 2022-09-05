@@ -2,16 +2,26 @@
     <div id="formContent">
 
 
+        <ng-template [ngIf]="isLoggedIn" [ngIfElse]="loggedOut">
 
+        <h1>User {{userLogin}} is currently logged in</h1>
+
+        <h3>To join as a different user please sign out</h3>
+
+        </ng-template>
+
+        <ng-template #loggedOut>
 
         <!-- Login Form -->
-        <form>
-            <input type="username" name="username" [(ngModel)]="username" placeholder="username">
-        </form>
+        <div id="userLogin">
+            <form>
+                <input id="userField" type="username" name="username" [(ngModel)]="username" placeholder="username">
+            </form>
+        </div>
 
-        <button (click)="submit()"> submit</button>
+        <button id="userLoginButton" (click)="submit()">Submit</button>
 
-
+        </ng-template>
 
     </div>
 </div>

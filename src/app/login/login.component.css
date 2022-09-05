@@ -46,8 +46,25 @@ html {
     width: 90%;
     max-width: 450px;
     position: relative;
-    padding: 0px;
+    padding: 20px;
     text-align: center;
+  }
+
+  #userLogin {
+    padding-bottom: 40px;
+    align: center;
+  }
+
+  #userField {
+    height: 40px;
+    width: 400px;
+    font-size: 30px;
+  }
+
+  #userLoginButton {
+    size: 40px;
+    width: 400px;
+    height: 60px;
   }
 
 
