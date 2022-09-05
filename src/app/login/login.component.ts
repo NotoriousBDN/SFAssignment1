@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import {CheckUserService} from '../services/check-user.service';
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
 };
@@ -14,6 +17,8 @@ const BACKEND_URL = 'https://s5217904.elf.ict.griffith.edu.au:3001';
 })
 export class LoginComponent implements OnInit {
   username = '';
+
+  role = '';
   
   userLogin = "";
 
@@ -23,7 +28,9 @@ export class LoginComponent implements OnInit {
 
   
 
-  constructor(private router:Router, private httpClient: HttpClient) { }
+  constructor(private router:Router, 
+    private httpClient: HttpClient,
+    private checkUserService: CheckUserService) { }
 
   ngOnInit(): void {
     if (this.a != null) {
@@ -55,13 +62,14 @@ export class LoginComponent implements OnInit {
         //sessionStorage.setItem('userbirthdate', data.userbirthdate);
         //sessionStorage.setItem('userage', data.userage.toString());
         this.username = data.username;
+        this.role = data.role;
         sessionStorage.setItem('user', data.username);
         sessionStorage.setItem('role', data.role);
         sessionStorage.setItem('groups', (data.groups));
         sessionStorage.setItem('loggedIn', "True");
         alert(JSON.stringify(data.groups));
         alert(data.groups.length);
-        
+        this.setItem();
         //var testing = [];
         for (let i = 0; i < data.groups.length; i++) {
           alert(data.groups[i].group);
@@ -101,4 +109,12 @@ export class LoginComponent implements OnInit {
   }
 
 
+  setItem() {
+    this.checkUserService.setItem(this.username, this.role)
+    console.log(JSON.stringify(this.checkUserService.jsonItems));
+  }
+
+
+  
+  
 }
