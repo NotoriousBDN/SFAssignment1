@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import {CheckUserService} from '../services/check-user.service';
+import {GetGroupsService} from '../services/get-groups.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
@@ -26,11 +27,20 @@ export class LoginComponent implements OnInit {
 
   a = sessionStorage.getItem('user');
 
+  b = {};
+
+  c = {};
+
+  userInfo = {};
+
+  userGroup = {};
+
   
 
   constructor(private router:Router, 
     private httpClient: HttpClient,
-    private checkUserService: CheckUserService) { }
+    private checkUserService: CheckUserService,
+    private getGroupsService: GetGroupsService) { }
 
   ngOnInit(): void {
     if (this.a != null) {
@@ -38,11 +48,37 @@ export class LoginComponent implements OnInit {
       this.userLogin = this.a;
     }
   }
+
+  getUser() {
+    this.b = this.checkUserService.getUser(this.username);
+    console.log(this.b);
+    this.httpClient.post(BACKEND_URL + '/getUser', this.b,  httpOptions)
+    .subscribe((data:any)=>{
+      alert("posting: " +JSON.stringify(this.b));
+      alert("User Info: " +JSON.stringify(data));
+      this.userInfo = data; //USERINFO HOLDS THE RELATED INFO FROM JSON FILE FOR USER
+      console.log(this.userInfo);
+    });
+  }
+
+  getGroup() {
+  this.c = this.getGroupsService.getGroup(this.username);
+  this.httpClient.post(BACKEND_URL + '/getGroup', this.c,  httpOptions)
+    .subscribe((data:any)=>{
+      alert("posting: " +JSON.stringify(this.c));
+      alert("postRes: " +JSON.stringify(data));
+      this.userGroup = data;
+      console.log(this.userGroup);
+    });
+  }
+
   submit(){
     
   let user = {username:this.username};
+
+
  //this.httpClient.post(BACKEND_URL + '/login', user,  httpOptions)
- this.httpClient.post(BACKEND_URL + '/getUser', user,  httpOptions)
+ this.httpClient.post(BACKEND_URL + '/login', user,  httpOptions)
 // this.httpClient.post(BACKEND_URL + '/login', user)
     .subscribe((data:any)=>{
       alert("posting: " +JSON.stringify(user));
@@ -98,16 +134,17 @@ export class LoginComponent implements OnInit {
       else { 
         alert("This username does not exist");
         this.isLoggedIn = false;
-    }
+      }
   
 
 
-    })
+    });
 
 
 
     
   }
+
 
   /*
 

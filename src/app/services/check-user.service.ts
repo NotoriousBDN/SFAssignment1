@@ -15,8 +15,10 @@ export class CheckUserService {
     return this.jsonItems[key];
   }
 
-  getUser(user: string) {
-    return 
+  getUser(username: string) {
+    let a = {username};
+    return a;
+    
   }
 
 }

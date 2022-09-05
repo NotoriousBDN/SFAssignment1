@@ -25,10 +25,10 @@ module.exports = function(req, res) {
             } else if (role == 3) {
                 role = "Super Admin";
             }
-            console.log("Role: ",role);
-            userInfo = userArray[i];
-            userInfo["ok"] = true;
         }
+        console.log("Role: ",role);
+        userInfo = userArray[i];
+        userInfo["ok"] = true;
     });   
     res.send(userInfo);    
 }
