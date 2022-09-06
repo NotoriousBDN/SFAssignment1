@@ -9,21 +9,49 @@ module.exports = function(req, res) {
     }
     console.log(userobj);
     let uArray = [];
+    nametaken = false;
+    idtaken = false;
+    roleinvalid = false;
     fs.readFile('./data/newUsers.json', 'utf8', function(err, data) {
         //open the file of user list
         if (err) throw err;
         uArray = JSON.parse(data);
-        console.log(userobj);
-        // make some change according to user's post 
-        let i = uArray.findIndex(x => x.username == userobj.username);
-        if (i == -1) {
-            uArray.push(userobj);
+        console.log(userobj.username);
+        for (let i=0; i < uArray.length; i++) {
+            if (uArray[i].username  == userobj.username) {
+                console.log("Identical Name");
+                nametaken = true;
+            } else if (uArray[i].id == userobj.id) {
+                console.log("Id Taken");
+                idtaken = true;
+            }
+        }
+        if (userobj.role > 3 || userobj.role < 0) {
+            roleinvalid = true;
+            res.send({
+                "roleinvalid": true
+            });
+        }
+        else if (nametaken == true) {
+            res.send({
+                "nametaken": true
+            });
         } 
+        else if (idtaken == true) {
+            res.send({
+                "idtaken": true
+            });
+        }
+        else {
+            uArray.push(userobj);
+            res.send(uArray);
+        } 
+
         //else {
            // uArray[i] = userobj;
        // }
         // send response to user
-        res.send(uArray);
+        // res.send(uArray);
         // save the file of user list
         let uArrayjson = JSON.stringify(uArray);
         fs.writeFile('./data/newUsers.json', uArrayjson, 'utf-8', function(err) {
