@@ -1,4 +1,5 @@
 var fs = require('fs');
+const { exit } = require('process');
 
 module.exports = function(req, res) {
     let userobj = {
@@ -9,9 +10,14 @@ module.exports = function(req, res) {
     }
     console.log(userobj);
     let uArray = [];
+    invalidentry=false;
     nametaken = false;
     idtaken = false;
     roleinvalid = false;
+    if (userobj.id == null || userobj.username == "" || userobj.email == "" || userobj.role == null) {
+        console.log("Invalid entry. Fill in all requirements");
+        invalidentry = true;
+    }
     fs.readFile('./data/newUsers.json', 'utf8', function(err, data) {
         //open the file of user list
         if (err) throw err;
@@ -26,7 +32,13 @@ module.exports = function(req, res) {
                 idtaken = true;
             }
         }
-        if (userobj.role > 3 || userobj.role < 0) {
+        if (invalidentry == true) {
+            res.send({
+                "invalidentry": true
+            });
+        } 
+        else if
+        (userobj.role > 3 || userobj.role < 0) {
             roleinvalid = true;
             res.send({
                 "roleinvalid": true

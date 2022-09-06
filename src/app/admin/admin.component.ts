@@ -33,20 +33,27 @@ export class AdminComponent implements OnInit {
   }
 
   createUser() {
-
     let userobj = {
       'userid': this.userid,
       'username': this.username, 
       'useremail': this.useremail, 
       'userrole': this.userrole
     }
-
     console.log(userobj);
-
-
     this.httpClient.post<Userobj[]>(BACKEND_URL + '/createUser', userobj,  httpOptions)
       .subscribe((m: any) => {alert(JSON.stringify(m));});
+  }
 
+  editUser() {
+    let userobj = {
+      'userid': this.userid,
+      'username': this.username, 
+      'useremail': this.useremail, 
+      'userrole': this.userrole
+    }
+    console.log(userobj);
+    this.httpClient.post<Userobj[]>(BACKEND_URL + '/editUser', userobj,  httpOptions)
+      .subscribe((m: any) => {alert(JSON.stringify(m));});
   }
 
 }
