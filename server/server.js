@@ -83,5 +83,6 @@ app.post('/createRoom', require('./router/createRoom'));
 app.post('/addUserGroup', require('./router/addUserGroup'));
 app.post('/deleteGroup', require('./router/deleteGroup'));
 app.post('/deleteRoom', require('./router/deleteRoom'));
+app.post('/removeUserGroup', require('./router/removeUserGroup'));
 
 

@@ -109,4 +109,14 @@ export class AdminComponent implements OnInit {
       .subscribe((m: any) => {alert(JSON.stringify(m));});
   }
 
+  removeUserGroup() {
+    let groupInfo = {
+      'groupname': this.groupname,
+      'user': this.username
+    }
+    console.log(groupInfo);
+    this.httpClient.post<Userobj[]>(BACKEND_URL + '/removeUserGroup', groupInfo,  httpOptions)
+      .subscribe((m: any) => {alert(JSON.stringify(m));});
+  }
+
 }
