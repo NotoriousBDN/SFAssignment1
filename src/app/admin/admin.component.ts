@@ -99,4 +99,14 @@ export class AdminComponent implements OnInit {
       .subscribe((m: any) => {alert(JSON.stringify(m));});
   }
 
+  deleteRoom() {
+    let groupInfo = {
+      'groupname': this.groupname,
+      'roomname': this.roomname
+    }
+    console.log(groupInfo);
+    this.httpClient.post<Userobj[]>(BACKEND_URL + '/deleteRoom', groupInfo,  httpOptions)
+      .subscribe((m: any) => {alert(JSON.stringify(m));});
+  }
+
 }
