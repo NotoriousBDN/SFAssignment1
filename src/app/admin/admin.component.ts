@@ -23,6 +23,8 @@ export class AdminComponent implements OnInit {
   username = "";
   useremail = "";
   userrole = 0;
+  groupname = "";
+  roomname = "";
 
   constructor(
     private router: Router, 
@@ -60,6 +62,13 @@ export class AdminComponent implements OnInit {
     let username = {'username': this.username};
     console.log(username);
     this.httpClient.post<Userobj[]>(BACKEND_URL + '/deleteUser', username,  httpOptions)
+      .subscribe((m: any) => {alert(JSON.stringify(m));});
+  }
+
+  createGroup() {
+    let groupname = {'groupname': this.groupname};
+    console.log(groupname);
+    this.httpClient.post<Userobj[]>(BACKEND_URL + '/createGroup', groupname,  httpOptions)
       .subscribe((m: any) => {alert(JSON.stringify(m));});
   }
 

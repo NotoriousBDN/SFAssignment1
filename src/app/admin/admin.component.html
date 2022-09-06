@@ -34,6 +34,17 @@ Role:
 <input type="number" [(ngModel)]="userrole">
 <br>
 
+
+Group:
+<br>
+<input type="string" [(ngModel)]="groupname">
+<br>
+
+Room:
+<br>
+<input type="string" [(ngModel)]="roomname">
+<br>
+
 <br>
 
 <button (click)="createUser()">Create User</button>
@@ -43,3 +54,6 @@ Role:
 <br>
 <br>
 <button (click)="deleteUser()">Delete User</button>
+<br>
+<br>
+<button (click)="createGroup()">Create Group</button>

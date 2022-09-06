@@ -1,5 +1,4 @@
 var fs = require('fs');
-const { exit } = require('process');
 
 module.exports = function(req, res) {
     let userobj = {
