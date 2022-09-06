@@ -4,6 +4,11 @@ import { ProfileComponent } from '../profile/profile.component';
 
 import { Userobj } from '../userobj';
 
+import { LoginComponent } from '../login/login.component';
+
+import {CheckUserService} from '../services/check-user.service';
+import {GetGroupsService} from '../services/get-groups.service';
+
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -14,16 +19,26 @@ import { Userobj } from '../userobj';
 export class AccountComponent implements OnInit {
 
 
-  constructor() { 
-    console.log(this.groups);
-  }
+  constructor(
+    private loginComponent: LoginComponent,
+    private checkUserService: CheckUserService,
+    private getGroupsService: GetGroupsService
+
+  ) {  }
 
 
+  userInfo = JSON.stringify(this.checkUserService.userValue);
 
+  groupInfo = JSON.stringify(this.getGroupsService.groupList);
 
   ngOnInit(): void {
-    this.iterateRooms();
+    //this.iterateRooms();
+    (this.loginComponent.userInfo);
+    console.log(this.checkUserService.userValue);
   }
+
+  //userInfo = JSON.stringify(this.loginComponent.userInfo);
+
   
   //username = sessionStorage.getItem('username');
   //birthdate = sessionStorage.getItem('userbirthdate');

@@ -26,7 +26,7 @@ import { RoomViewComponent } from './room-view/room-view.component';
     FormsModule,
     HttpClientModule // for http method
   ],
-  providers: [AccountComponent],
+  providers: [AccountComponent, LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -18,4 +18,5 @@ export class RoomViewComponent implements OnInit {
 
   apple = this.accountComponent.rooms;
 
+
 }

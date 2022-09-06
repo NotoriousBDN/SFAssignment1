@@ -18,7 +18,8 @@ export class CheckUserService {
   getUser(username: string) {
     let a = {username};
     return a;
-    
   }
+
+  userValue;
 
 }

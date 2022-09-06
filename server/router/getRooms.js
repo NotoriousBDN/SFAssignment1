@@ -47,7 +47,6 @@ module.exports = function(req, res) {
                     test1["username"] = u;
                     test1["role"] = role;
                     test1["groups"] = [];
-                    test2 = [];
 
                     console.log(extendedUserArray.length)
 
@@ -70,8 +69,10 @@ module.exports = function(req, res) {
                                 console.log(test.groups);
                                 roomList = extendedUserArray[a].rooms;
                                 console.log(roomList);
+                                //test["groups"].push(extendedUserArray[a].group);
                                 test1.groups.push({group: extendedUserArray[a].group, rooms: roomList, userList: extendedUserArray[a].userList});
-                                test2.push({group: extendedUserArray[a].group, rooms: roomList});
+                                test2 = {roomList};
+
                             }
                         }
                     }
@@ -81,7 +82,6 @@ module.exports = function(req, res) {
                     console.log(userData);
                     console.log(test);
                     console.log(test1);
-                    console.log(test2);
                     userData = test;
                     res.send(test2);
 

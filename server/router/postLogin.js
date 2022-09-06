@@ -84,7 +84,7 @@ module.exports = function(req, res) {
                     console.log(test);
                     console.log(test1);
                     userData = test;
-                    res.send(apple);
+                    res.send(test1);
 
                 });
             });

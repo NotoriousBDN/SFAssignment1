@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import {CheckUserService} from '../services/check-user.service';
 import {GetGroupsService} from '../services/get-groups.service';
+import {GetRoomsService} from '../services/get-rooms.service';
+import {GetUsersService} from '../services/get-users.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
@@ -31,16 +33,22 @@ export class LoginComponent implements OnInit {
 
   c = {};
 
+  d = {};
+
   userInfo = {};
 
   userGroup = {};
+
+  groupName = "";
 
   
 
   constructor(private router:Router, 
     private httpClient: HttpClient,
     private checkUserService: CheckUserService,
-    private getGroupsService: GetGroupsService) { }
+    private getGroupsService: GetGroupsService,
+    private getRoomsService: GetRoomsService,
+    private getUsersService: GetUsersService) { }
 
   ngOnInit(): void {
     if (this.a != null) {
@@ -58,6 +66,17 @@ export class LoginComponent implements OnInit {
       alert("User Info: " +JSON.stringify(data));
       this.userInfo = data; //USERINFO HOLDS THE RELATED INFO FROM JSON FILE FOR USER
       console.log(this.userInfo);
+      console.log(JSON.stringify(this.userInfo));
+      //this.userInfo = JSON.stringify(this.userInfo);
+      this.checkUserService.userValue = this.userInfo;
+
+      //THIS MAKES LOGIN WORK WITHOUT CHECKING DATA = OK
+      sessionStorage.setItem('user', data.username);
+      console.log(sessionStorage.getItem('user'));
+      //IMPLEMENT DATA = OK TO ENSURE EVERYTHING WORKS
+      
+
+
     });
   }
 
@@ -67,13 +86,29 @@ export class LoginComponent implements OnInit {
     .subscribe((data:any)=>{
       alert("posting: " +JSON.stringify(this.c));
       alert("postRes: " +JSON.stringify(data));
-      this.userGroup = data;
-      console.log(this.userGroup);
+      this.getGroupsService.groupList = data;
+    });
+  }
+
+  getUsers() {
+    this.d = this.getUsersService.getUsers(this.username);
+    console.log(this.d);
+    //NEED TO PASS GROUP NAME THROUGH
+    //WORKS IF GROUP NAME IS IN JS FILE
+    //NEED TO FIND HOW TO PASS VARIABLE
+    this.httpClient.post(BACKEND_URL + '/getUsers', this.d,  httpOptions)
+    .subscribe((data:any)=>{
+      alert("posting: " +JSON.stringify(this.d));
+      alert("postRes: " +JSON.stringify(data));
+      //alert("postRes: " +JSON.stringify(data));
+      this.getUsersService.userList = data;
     });
   }
 
   submit(){
     
+  
+  
   let user = {username:this.username};
 
 
