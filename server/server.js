@@ -77,4 +77,5 @@ app.post('/getRooms', require('./router/getRooms'));
 app.post('/getUsers', require('./router/getUsers'));
 app.post('/createUser', require('./router/createUser'));
 app.post('/editUser', require('./router/editUser'));
+app.post('/deleteUser', require('./router/deleteUser'));
 

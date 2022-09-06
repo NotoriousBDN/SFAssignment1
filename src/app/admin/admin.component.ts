@@ -56,4 +56,11 @@ export class AdminComponent implements OnInit {
       .subscribe((m: any) => {alert(JSON.stringify(m));});
   }
 
+  deleteUser() {
+    let username = {'username': this.username};
+    console.log(username);
+    this.httpClient.post<Userobj[]>(BACKEND_URL + '/deleteUser', username,  httpOptions)
+      .subscribe((m: any) => {alert(JSON.stringify(m));});
+  }
+
 }
