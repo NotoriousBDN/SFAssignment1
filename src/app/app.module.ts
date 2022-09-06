@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { AccountComponent } from './account/account.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RoomViewComponent } from './room-view/room-view.component';
+import { AdminComponent } from './admin/admin.component';
 // import { from } from 'rxjs';
 
 @NgModule({
@@ -18,7 +19,8 @@ import { RoomViewComponent } from './room-view/room-view.component';
     LoginComponent,
     AccountComponent,
     ProfileComponent,
-    RoomViewComponent
+    RoomViewComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

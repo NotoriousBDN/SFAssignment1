@@ -1,9 +1,7 @@
 export interface Userobj {
-    //userid: number;
-    //username: string;
-    //userbirthdate: string;
-    //userage: number;
-
-    rooms: string;
+    id: number;
+    username: string;
+    useremail: string;
+    userrole: number;
 
 }

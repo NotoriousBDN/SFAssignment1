@@ -75,5 +75,5 @@ app.post('/getUser', require('./router/getUser'));
 app.post('/getGroup', require('./router/getGroup'));
 app.post('/getRooms', require('./router/getRooms'));
 app.post('/getUsers', require('./router/getUsers'));
-
+app.post('/createUser', require('./router/createUser'));
 

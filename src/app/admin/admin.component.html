@@ -1,0 +1,37 @@
+
+
+<p>Note: Regarding Roles the heirarchy is:
+    <br>
+    0 = No Role
+    <br>
+    1 = Group Assistant
+    <br>
+    2 = Group Admin
+    <br>
+    3 = Super Admin
+</p>
+
+ID:
+<br>
+<input type="number" [(ngModel)]="userid">
+<br>
+
+Username:
+<br>
+<input type="string" [(ngModel)]="username">
+<br>
+
+Email:
+<br>
+<input type="email" [(ngModel)]="useremail">
+<br>
+
+
+Role:
+<br>
+<input type="number" [(ngModel)]="userrole">
+<br>
+
+<br>
+
+<button (click)="createUser()">Create User</button>
