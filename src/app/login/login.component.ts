@@ -58,7 +58,6 @@ export class LoginComponent implements OnInit {
 
   logout() {
     localStorage.clear();
-    sessionStorage.clear();
   }
 
   getUser() {
@@ -104,28 +103,4 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  submit(){
-    
-  
-  
-  let user = {username:this.username};
-
-
- 
- this.httpClient.post(BACKEND_URL + '/login', user,  httpOptions)
-    .subscribe((data:any)=>{
-      alert("posting: " +JSON.stringify(user));
-      //alert(data);
-      alert("postRes: " +JSON.stringify(data));
-      if (data.ok){
-        let rooms = JSON.stringify(data.groups);
-
-        this.router.navigateByUrl("/account");
-      }
-      else { 
-        alert("This username does not exist");
-        //this.isLoggedIn = false;
-      }
-    });
-  } 
 }

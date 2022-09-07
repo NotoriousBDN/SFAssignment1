@@ -69,7 +69,6 @@ httpsServer.listen(PORT, () => {
     console.log(`Starting htttps server at: ${PORT}`);
 });
 
-app.post('/login', require('./router/postLogin'));
 app.post('/getUser', require('./router/getUser'));
 app.post('/getGroup', require('./router/getGroup'));
 app.post('/getRooms', require('./router/getRooms'));

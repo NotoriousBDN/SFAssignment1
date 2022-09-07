@@ -1,9 +1,9 @@
 
 <ng-template [ngIf]="role0">
 
-    <h1>You have no admin privileges</h1>
+    <h1>You have no role</h1>
 
-    <p>Unfortunately you cannot do admin tasks. To change this login to another user.</p>
+    <p>Unfortunately you cannot do admin tasks. Login to a Group Assistant, Group Admin or Super Admin to have access to permissions.</p>
 
 </ng-template>
 
@@ -11,7 +11,7 @@
 
     <h1>You are a group assistant</h1>
 
-    <p>You have limited access.</p>
+    <p>You have limited access. Login to a Group Admin or Super Admin to have more permissions.</p>
 
     Username:
     <br>
@@ -30,10 +30,10 @@
     <button (click)="createRoom()">Create Room</button> <label>Provide the name of the group and the name of the room</label>
     <br>
     <br>
-    <button (click)="addUserGroup()">Add User to Group</button>
+    <button (click)="addUserGroup()">Add User to Group</button> <label>Provide the name of the user and group</label>
     <br>
     <br>
-    <button (click)="removeUserGroup()">Remove a User from Group</button>
+    <button (click)="removeUserGroup()">Remove a User from Group</button> <label>Provide the name of the group and the user</label>
     <br>
     <br>
 
@@ -43,6 +43,8 @@
 <ng-template [ngIf]="role2">
 
     <h1>You are a group admin</h1>
+
+    <p>You have limited access. Login to a Super Admin to have more permissions.</p>
     
     <p>Note: Regarding Roles the heirarchy is:
         <br>
@@ -90,25 +92,25 @@
     <br>
 
     <br>
-    <button (click)="createUser()">Create User</button>
+    <button (click)="createUser()">Create User</button> <label>Provide the id, name, email and role of the user</label>
     <br>
     <br>
-    <button (click)="createGroup()">Create Group</button>
+    <button (click)="createGroup()">Create Group</button> <label>Provide the groupname and create a new group</label>
     <br>
     <br>
-    <button (click)="createRoom()">Create Room</button>
+    <button (click)="createRoom()">Create Room</button> <label>Provide the name of the group and the name of the room</label>
     <br>
     <br>
-    <button (click)="addUserGroup()">Add User to Group</button>
+    <button (click)="addUserGroup()">Add User to Group</button> <label>Provide the name of the user and group</label>
     <br>
     <br>
-    <button (click)="deleteGroup()">Delete a Group</button>
+    <button (click)="deleteGroup()">Delete a Group</button> <label>Provide the name of the group</label>
     <br>
     <br>
-    <button (click)="deleteRoom()">Delete a Room</button>
+    <button (click)="deleteRoom()">Delete a Room</button> <label>Provide the name of the group and room</label>
     <br>
     <br>
-    <button (click)="removeUserGroup()">Remove a User from Group</button>
+    <button (click)="removeUserGroup()">Remove a User from Group</button> <label>Provide the name of the group and the user</label>
 
 </ng-template>
 
@@ -116,7 +118,7 @@
 
     <h1>You are a super admin</h1>
 
-    <p>You have full access.</p>
+    <p>You have full access to all permissions.</p>
 
     <p>Note: Regarding Roles the heirarchy is:
         <br>
@@ -165,30 +167,30 @@
 
     <br>
 
-    <button (click)="createUser()">Create User</button>
+    <button (click)="createUser()">Create User</button> <label>Provide the id, name, email and role of the user</label>
     <br>
     <br>
-    <button (click)="editUser()">Edit User</button>
+    <button (click)="editUser()">Edit User</button> <label>Edit the name, email and role of the user</label>
     <br>
     <br>
-    <button (click)="deleteUser()">Delete User</button>
+    <button (click)="deleteUser()">Delete User</button> <label>Provide the username and delete the user</label>
     <br>
     <br>
-    <button (click)="createGroup()">Create Group</button>
+    <button (click)="createGroup()">Create Group</button> <label>Provide the groupname and create a new group</label>
     <br>
     <br>
     <button (click)="createRoom()">Create Room</button> <label>Provide the name of the group and the name of the room</label>
     <br>
     <br>
-    <button (click)="addUserGroup()">Add User to Group</button>
+    <button (click)="addUserGroup()">Add User to Group</button> <label>Provide the name of the user and group</label>
     <br>
     <br>
-    <button (click)="deleteGroup()">Delete a Group</button>
+    <button (click)="deleteGroup()">Delete a Group</button> <label>Provide the name of the group</label>
     <br>
     <br>
-    <button (click)="deleteRoom()">Delete a Room</button>
+    <button (click)="deleteRoom()">Delete a Room</button> <label>Provide the name of the group and room</label>
     <br>
     <br>
-    <button (click)="removeUserGroup()">Remove a User from Group</button>
+    <button (click)="removeUserGroup()">Remove a User from Group</button> <label>Provide the name of the group and the user</label>
 
 </ng-template>

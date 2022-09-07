@@ -13,7 +13,8 @@ export class AppComponent {
 
   logout() {
     localStorage.clear();
-    sessionStorage.clear();
     this.router.navigateByUrl("/login");
   }
+
+
 }
