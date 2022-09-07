@@ -27,7 +27,8 @@ export class AdminComponent implements OnInit {
   roomname = "";
   a = 0;
 
-  role0 = true;
+  loggedOut = true;
+  role0 = false;
   role1 = false;
   role2 = false;
   role3 = false;
@@ -38,6 +39,15 @@ export class AdminComponent implements OnInit {
     { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('loggedIn') == 'true') {
+      this.loggedOut = false;
+      console.log("Logged In");
+      this.role0 = true;
+    } else {
+      this.loggedOut = true;
+      alert("Please Login");
+      this.router.navigateByUrl("/login");
+    }
     if (localStorage.getItem('role') == '0') {
       console.log("Role = 0");
       this.role0 = true;

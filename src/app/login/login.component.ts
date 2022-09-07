@@ -65,8 +65,6 @@ export class LoginComponent implements OnInit {
     console.log(this.b);
     this.httpClient.post(BACKEND_URL + '/getUser', this.b,  httpOptions)
     .subscribe((data:any)=>{
-      alert("posting: " +JSON.stringify(this.b));
-      alert("User Info: " +JSON.stringify(data));
       this.checkUserService.userValue = data;
       localStorage.setItem('user', data.username);
       localStorage.setItem('loggedIn', 'true');
@@ -75,14 +73,13 @@ export class LoginComponent implements OnInit {
       console.log(localStorage.getItem('user'));
       console.log(localStorage.getItem('role'));
     });
+    this.getGroup();
   }
 
   getGroup() {
   this.c = this.getGroupsService.getGroup(this.username);
   this.httpClient.post(BACKEND_URL + '/getGroup', this.c,  httpOptions)
     .subscribe((data:any)=>{
-      alert("posting: " +JSON.stringify(this.c));
-      alert("postRes: " +JSON.stringify(data));
       this.getGroupsService.groupList = data;
       console.log(data);
     });
@@ -91,9 +88,6 @@ export class LoginComponent implements OnInit {
   getUsers() {
     this.d = this.getUsersService.getUsers(this.username);
     console.log(this.d);
-    //NEED TO PASS GROUP NAME THROUGH
-    //WORKS IF GROUP NAME IS IN JS FILE
-    //NEED TO FIND HOW TO PASS VARIABLE
     this.httpClient.post(BACKEND_URL + '/getUsers', this.d,  httpOptions)
     .subscribe((data:any)=>{
       alert("posting: " +JSON.stringify(this.d));

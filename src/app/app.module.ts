@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RoomViewComponent } from './room-view/room-view.component';
 import { AdminComponent } from './admin/admin.component';
+import { GroupsComponent } from './groups/groups.component';
 // import { from } from 'rxjs';
 
 @NgModule({
@@ -16,7 +17,8 @@ import { AdminComponent } from './admin/admin.component';
     AppComponent,
     LoginComponent,
     RoomViewComponent,
-    AdminComponent
+    AdminComponent,
+    GroupsComponent
   ],
   imports: [
     BrowserModule,

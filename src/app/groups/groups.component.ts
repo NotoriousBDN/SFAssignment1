@@ -9,13 +9,12 @@ const BACKEND_URL = 'https://s5217904.elf.ict.griffith.edu.au:3001';
 import { NgForm } from '@angular/forms';
 import {Router} from '@angular/router';
 
-
 @Component({
-  selector: 'app-room-view',
-  templateUrl: './room-view.component.html',
-  styleUrls: ['./room-view.component.css']
+  selector: 'app-groups',
+  templateUrl: './groups.component.html',
+  styleUrls: ['./groups.component.css']
 })
-export class RoomViewComponent implements OnInit {
+export class GroupsComponent implements OnInit {
 
   constructor(
     private router: Router, 
@@ -34,7 +33,5 @@ export class RoomViewComponent implements OnInit {
       this.router.navigateByUrl("/login");
     }
   }
-
-
 
 }
