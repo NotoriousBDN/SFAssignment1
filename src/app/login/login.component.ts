@@ -4,7 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import {CheckUserService} from '../services/check-user.service';
 import {GetGroupsService} from '../services/get-groups.service';
-import {GetRoomsService} from '../services/get-rooms.service';
 import {GetUsersService} from '../services/get-users.service';
 
 const httpOptions = {
@@ -45,7 +44,6 @@ export class LoginComponent implements OnInit {
     private httpClient: HttpClient,
     private checkUserService: CheckUserService,
     private getGroupsService: GetGroupsService,
-    private getRoomsService: GetRoomsService,
     private getUsersService: GetUsersService) { }
 
   ngOnInit(): void {
