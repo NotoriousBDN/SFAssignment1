@@ -1,74 +1,194 @@
 
+<ng-template [ngIf]="role0">
 
-<p>Note: Regarding Roles the heirarchy is:
+    <h1>You have no admin privileges</h1>
+
+    <p>Unfortunately you cannot do admin tasks. To change this login to another user.</p>
+
+</ng-template>
+
+<ng-template [ngIf]="role1">
+
+    <h1>You are a group assistant</h1>
+
+    <p>You have limited access.</p>
+
+    Username:
     <br>
-    0 = No Role
+    <input type="string" [(ngModel)]="username">
     <br>
-    1 = Group Assistant
+    Group:
     <br>
-    2 = Group Admin
+    <input type="string" [(ngModel)]="groupname">
     <br>
-    3 = Super Admin
-</p>
+    Room:
+    <br>
+    <input type="string" [(ngModel)]="roomname">
+    <br>
+    <br>
 
-<p>ID cannot be edited</p>
-
-ID:
-<br>
-<input type="number" [(ngModel)]="userid">
-<br>
-
-Username:
-<br>
-<input type="string" [(ngModel)]="username">
-<br>
-
-Email:
-<br>
-<input type="email" [(ngModel)]="useremail">
-<br>
+    <button (click)="createRoom()">Create Room</button> <label>Provide the name of the group and the name of the room</label>
+    <br>
+    <br>
+    <button (click)="addUserGroup()">Add User to Group</button>
+    <br>
+    <br>
+    <button (click)="removeUserGroup()">Remove a User from Group</button>
+    <br>
+    <br>
 
 
-Role:
-<br>
-<input type="number" [(ngModel)]="userrole">
-<br>
+</ng-template>
+
+<ng-template [ngIf]="role2">
+
+    <h1>You are a group admin</h1>
+    
+    <p>Note: Regarding Roles the heirarchy is:
+        <br>
+        0 = No Role
+        <br>
+        1 = Group Assistant
+        <br>
+        2 = Group Admin
+        <br>
+        3 = Super Admin
+    </p>
+
+    <p>ID cannot be edited only used when creating a user.</p>
+
+    ID:
+    <br>
+    <input type="number" id="id" [(ngModel)]="userid">
+    <br>
+
+    Username:
+    <br>
+    <input type="string" [(ngModel)]="username">
+    <br>
+
+    Email:
+    <br>
+    <input type="email" [(ngModel)]="useremail">
+    <br>
 
 
-Group:
-<br>
-<input type="string" [(ngModel)]="groupname">
-<br>
+    Role:
+    <br>
+    <input type="number" [(ngModel)]="userrole">
+    <br>
 
-Room:
-<br>
-<input type="string" [(ngModel)]="roomname">
-<br>
 
-<br>
+    Group:
+    <br>
+    <input type="string" [(ngModel)]="groupname">
+    <br>
 
-<button (click)="createUser()">Create User</button>
-<br>
-<br>
-<button (click)="editUser()">Edit User</button>
-<br>
-<br>
-<button (click)="deleteUser()">Delete User</button>
-<br>
-<br>
-<button (click)="createGroup()">Create Group</button>
-<br>
-<br>
-<button (click)="createRoom()">Create Room</button>
-<br>
-<br>
-<button (click)="addUserGroup()">Add User to Group</button>
-<br>
-<br>
-<button (click)="deleteGroup()">Delete a Group</button>
-<br>
-<br>
-<button (click)="deleteRoom()">Delete a Room</button>
-<br>
-<br>
-<button (click)="removeUserGroup()">Remove a User from Group</button>
+    Room:
+    <br>
+    <input type="string" [(ngModel)]="roomname">
+    <br>
+
+    <br>
+    <button (click)="createUser()">Create User</button>
+    <br>
+    <br>
+    <button (click)="createGroup()">Create Group</button>
+    <br>
+    <br>
+    <button (click)="createRoom()">Create Room</button>
+    <br>
+    <br>
+    <button (click)="addUserGroup()">Add User to Group</button>
+    <br>
+    <br>
+    <button (click)="deleteGroup()">Delete a Group</button>
+    <br>
+    <br>
+    <button (click)="deleteRoom()">Delete a Room</button>
+    <br>
+    <br>
+    <button (click)="removeUserGroup()">Remove a User from Group</button>
+
+</ng-template>
+
+<ng-template [ngIf]="role3">
+
+    <h1>You are a super admin</h1>
+
+    <p>You have full access.</p>
+
+    <p>Note: Regarding Roles the heirarchy is:
+        <br>
+        0 = No Role
+        <br>
+        1 = Group Assistant
+        <br>
+        2 = Group Admin
+        <br>
+        3 = Super Admin
+    </p>
+
+    <p>ID cannot be edited only used when creating a user.</p>
+
+    ID:
+    <br>
+    <input type="number" id="id" [(ngModel)]="userid">
+    <br>
+
+    Username:
+    <br>
+    <input type="string" [(ngModel)]="username">
+    <br>
+
+    Email:
+    <br>
+    <input type="email" [(ngModel)]="useremail">
+    <br>
+
+
+    Role:
+    <br>
+    <input type="number" [(ngModel)]="userrole">
+    <br>
+
+
+    Group:
+    <br>
+    <input type="string" [(ngModel)]="groupname">
+    <br>
+
+    Room:
+    <br>
+    <input type="string" [(ngModel)]="roomname">
+    <br>
+
+    <br>
+
+    <button (click)="createUser()">Create User</button>
+    <br>
+    <br>
+    <button (click)="editUser()">Edit User</button>
+    <br>
+    <br>
+    <button (click)="deleteUser()">Delete User</button>
+    <br>
+    <br>
+    <button (click)="createGroup()">Create Group</button>
+    <br>
+    <br>
+    <button (click)="createRoom()">Create Room</button> <label>Provide the name of the group and the name of the room</label>
+    <br>
+    <br>
+    <button (click)="addUserGroup()">Add User to Group</button>
+    <br>
+    <br>
+    <button (click)="deleteGroup()">Delete a Group</button>
+    <br>
+    <br>
+    <button (click)="deleteRoom()">Delete a Room</button>
+    <br>
+    <br>
+    <button (click)="removeUserGroup()">Remove a User from Group</button>
+
+</ng-template>

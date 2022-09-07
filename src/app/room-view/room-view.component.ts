@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AccountComponent } from '../account/account.component';
 
 @Component({
   selector: 'app-room-view',
@@ -9,14 +8,11 @@ import { AccountComponent } from '../account/account.component';
 })
 export class RoomViewComponent implements OnInit {
 
-  constructor(
-    private accountComponent: AccountComponent
-  ) { }
+  constructor( ) { }
 
   ngOnInit(): void {
   }
 
-  apple = this.accountComponent.rooms;
 
 
 }

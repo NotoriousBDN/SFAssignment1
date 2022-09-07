@@ -25,6 +25,12 @@ export class AdminComponent implements OnInit {
   userrole = 0;
   groupname = "";
   roomname = "";
+  a = 0;
+
+  role0 = true;
+  role1 = false;
+  role2 = false;
+  role3 = false;
 
   constructor(
     private router: Router, 
@@ -32,7 +38,35 @@ export class AdminComponent implements OnInit {
     { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('role') == '0') {
+      console.log("Role = 0");
+      this.role0 = true;
+      this.role1 = false;
+      this.role2 = false;
+      this.role3 = false;
+    } else if (localStorage.getItem('role') == '1') {
+      console.log("Role = 1");
+      this.role0 = false;
+      this.role1 = true;
+      this.role2 = false;
+      this.role3 = false;
+    } else if (localStorage.getItem('role') == '2') {
+      console.log("Role = 2");
+      this.role0 = false;
+      this.role1 = false;
+      this.role2 = true;
+      this.role3 = false;
+    } else if (localStorage.getItem('role') == '3') {
+      console.log("Role = 3");
+      this.role0 = false;
+      this.role1 = false;
+      this.role2 = false;
+      this.role3 = true;
+
+    }
   }
+    
+
 
   createUser() {
     let userobj = {
@@ -42,8 +76,16 @@ export class AdminComponent implements OnInit {
       'userrole': this.userrole
     }
     console.log(userobj);
-    this.httpClient.post<Userobj[]>(BACKEND_URL + '/createUser', userobj,  httpOptions)
+    console.log(userobj.userrole);
+    console.log(Number(localStorage.getItem('role')));
+
+    if (Number(localStorage.getItem('role')) > userobj.userrole || Number(localStorage.getItem('role')) == 3) {
+      console.log("Works");
+      this.httpClient.post<Userobj[]>(BACKEND_URL + '/createUser', userobj,  httpOptions)
       .subscribe((m: any) => {alert(JSON.stringify(m));});
+    } else {
+      alert("You do not have permission to give that role");
+    }
   }
 
   editUser() {
@@ -54,8 +96,13 @@ export class AdminComponent implements OnInit {
       'userrole': this.userrole
     }
     console.log(userobj);
-    this.httpClient.post<Userobj[]>(BACKEND_URL + '/editUser', userobj,  httpOptions)
+    if (Number(localStorage.getItem('role')) > userobj.userrole || Number(localStorage.getItem('role')) == 3) {
+      console.log("Works");
+      this.httpClient.post<Userobj[]>(BACKEND_URL + '/createUser', userobj,  httpOptions)
       .subscribe((m: any) => {alert(JSON.stringify(m));});
+    } else {
+      alert("You do not have permission to give that role");
+    }
   }
 
   deleteUser() {

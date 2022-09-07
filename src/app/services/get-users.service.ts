@@ -14,4 +14,6 @@ export class GetUsersService {
 
   userList;
 
+  loggedIn;
+
 }

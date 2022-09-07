@@ -7,8 +7,6 @@ import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { AccountComponent } from './account/account.component';
-import { ProfileComponent } from './profile/profile.component';
 import { RoomViewComponent } from './room-view/room-view.component';
 import { AdminComponent } from './admin/admin.component';
 // import { from } from 'rxjs';
@@ -17,8 +15,6 @@ import { AdminComponent } from './admin/admin.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    AccountComponent,
-    ProfileComponent,
     RoomViewComponent,
     AdminComponent
   ],
@@ -28,7 +24,7 @@ import { AdminComponent } from './admin/admin.component';
     FormsModule,
     HttpClientModule // for http method
   ],
-  providers: [AccountComponent, LoginComponent],
+  providers: [LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
