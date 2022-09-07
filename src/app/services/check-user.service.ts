@@ -20,6 +20,6 @@ export class CheckUserService {
     return a;
   }
 
-  userValue;
+  userValue = {};
 
 }

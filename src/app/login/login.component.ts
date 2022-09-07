@@ -65,7 +65,9 @@ export class LoginComponent implements OnInit {
     console.log(this.b);
     this.httpClient.post(BACKEND_URL + '/getUser', this.b,  httpOptions)
     .subscribe((data:any)=>{
-      this.checkUserService.userValue = data;
+      this.checkUserService.userValue = (data);
+      console.log(data);
+      console.log(this.checkUserService.userValue);
       localStorage.setItem('user', data.username);
       localStorage.setItem('loggedIn', 'true');
       localStorage.setItem('role', data.role);
